@@ -36,7 +36,7 @@ export default function Books() {
   const [bookToEdit, setBookToEdit] = useState<Book | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [bookToDelete, setBookToDelete] = useState<Book | null>(null);
-
+  const [userRole, setUserRole] = useState<"admin" | "comum" | null>(null);
   const queryClient = useQueryClient();
   const {
     register,
@@ -47,6 +47,8 @@ export default function Books() {
     resolver: zodResolver(bookSchema),
   });
 
+
+  
   const { mutate: addBook, isPending: isAdding } = useMutation({
     mutationFn: BookService.addBook,
     onSuccess: (data: Book) => {
