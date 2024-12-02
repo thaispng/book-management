@@ -1,21 +1,21 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Thaís",
       "email": "thais@example.com",
       "role": "admin",
       "password": "senha123"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Matheus",
       "email": "matheus@example.com",
       "role": "comum",
       "password": "senha456"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Lucas",
       "email": "lucas@example.com",
       "role": "comum",
@@ -24,31 +24,22 @@
   ],
   "books": [
     {
-      "id": 1,
-      "title": "Harry Potter e as Relíquias da Morte",
+      "title": "Harry Potter e as Relíquias da Mortee",
       "author": "J. K. Rowling",
-      "authorImage": "/author-jk-rowling.jpg",
-      "pages": 700,
       "description": "Harry Potter e as Relíquias da Morte é o sétimo e último livro da série Harry Potter. A obra narra a batalha final entre Harry Potter e Lord Voldemort, o bruxo das trevas que deseja conquistar o mundo mágico e não mágico.",
-      "image": "/book-one.png"
+      "pages": 700,
+      "image": "/book-one.png",
+      "authorImage": "/author-jk-rowling.jpg",
+      "id": "1"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Game of Thrones - As Crônicas de Gelo e Fogo",
       "author": "George R. R. Martin",
       "authorImage": "/author-george-rr-martin.png",
       "pages": 800,
       "description": "O Senhor dos Anéis é um dos clássicos da literatura fantástica. A história se passa na Terra Média, um mundo fictício criado por Tolkien, e narra a jornada de um grupo de personagens em busca de destruir o Um Anel, um objeto que pode trazer a destruição do mundo.",
       "image": "/book-two.jpg"
-    },
-    {
-      "id": 3,
-      "title": "O Pequeno Príncipe",
-      "author": "Antoine de Saint-Exupéry",
-      "authorImage": "/author-antoine-de-saint-exupery.jpg",
-      "pages": 100,
-      "description": "O Pequeno Príncipe é um livro infanto-juvenil que narra a história de um príncipe que viaja por diversos planetas e conhece diferentes personagens. A obra é uma crítica à sociedade e aos valores humanos.",
-      "image": "/book-three.jpg"
     }
   ]
 }
