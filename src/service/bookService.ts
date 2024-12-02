@@ -21,9 +21,33 @@ const addBook = async (newBook: Book): Promise<Book> => {
   }
 };
 
+const updateBook = async (
+  id: string,
+  updatedBook: Partial<Book>
+): Promise<Book> => {
+  try {
+    const response = await api.put(`/books/${id}`, updatedBook);
+    return response.data;
+  } catch (error) {
+    console.error("Error updating book:", error);
+    throw new Error("Failed to update book");
+  }
+};
+
+const deleteBook = async (id: string): Promise<void> => {
+  try {
+    await api.delete(`/books/${id}`);
+  } catch (error) {
+    console.error("Error deleting book:", error);
+    throw new Error("Failed to delete book");
+  }
+};
+
 const Bookservice = {
   fetchBooks,
   addBook,
+  updateBook,
+  deleteBook,
 };
 
 export default Bookservice;
