@@ -308,7 +308,7 @@ export default function Books() {
       </div>
       {isAddModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-zinc-900 bg-opacity-60 z-50">
-          <Card className="relative w-[400px] bg-black shadow-xl p-8 rounded-lg text-white">
+          <Card className="relative w-fit bg-black shadow-xl p-8 rounded-lg text-white">
             <button
               onClick={handleCloseAddModal}
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-200 focus:outline-none"
@@ -326,45 +326,51 @@ export default function Books() {
                 onSubmit={handleSubmit(onAddSubmit)}
                 className="flex flex-col gap-4"
               >
-                <Input
-                  label="Título"
-                  {...register("title")}
-                  placeholder="Digite o título"
-                />
+                <div className="grid grid-cols-2 gap-4">
+                  <Input
+                    label="Título"
+                    {...register("title")}
+                    placeholder="Digite o título"
+                  />
+                  <Input
+                    label="Autor"
+                    {...register("author")}
+                    placeholder="Nome do autor"
+                  />
+                </div>
                 {errors.title && (
                   <p className="text-red-500 text-xs">{errors.title.message}</p>
                 )}
-
-                <Input
-                  label="Autor"
-                  {...register("author")}
-                  placeholder="Nome do autor"
-                />
                 {errors.author && (
                   <p className="text-red-500 text-xs">
                     {errors.author.message}
                   </p>
                 )}
 
-                <Input
-                  label="Páginas"
-                  type="number"
-                  {...register("pages")}
-                  placeholder="Número de páginas"
-                />
+                <div className="grid grid-cols-2 gap-4">
+                  <Input
+                    label="Páginas"
+                    type="number"
+                    {...register("pages")}
+                    placeholder="Número de páginas"
+                  />
+                  <Input
+                    label="Capa do Autor"
+                    {...register("authorImage")}
+                    placeholder="URL da imagem do autor"
+                  />
+                </div>
                 {errors.pages && (
                   <p className="text-red-500 text-xs">{errors.pages.message}</p>
                 )}
-                <Input
-                  label="Capa"
-                  {...register("authorImage")}
-                  placeholder="URL da imagem do autor"
-                />
-                {errors.image && (
-                  <p className="text-red-500 text-xs">{errors.image.message}</p>
+                {errors.authorImage && (
+                  <p className="text-red-500 text-xs">
+                    {errors.authorImage.message}
+                  </p>
                 )}
+
                 <Input
-                  label="Capa"
+                  label="Capa do Livro"
                   {...register("image")}
                   placeholder="URL da capa do livro"
                 />
@@ -376,12 +382,14 @@ export default function Books() {
                   label="Descrição"
                   {...register("description")}
                   placeholder="Digite uma breve descrição"
+                  className="col-span-2"
                 />
                 {errors.description && (
                   <p className="text-red-500 text-xs">
                     {errors.description.message}
                   </p>
                 )}
+
                 <Button
                   isLoading={isAdding}
                   className="w-full bg-amber-500 font-semibold hover:bg-amber-400"
@@ -414,45 +422,47 @@ export default function Books() {
                 onSubmit={handleSubmit(onEditSubmit)}
                 className="flex flex-col gap-4"
               >
-                <Input
-                  label="Título"
-                  defaultValue={bookToEdit?.title}
-                  {...register("title")}
-                  placeholder="Digite o título"
-                />
+                <div className="grid grid-cols-2 gap-4">
+                  <Input
+                    label="Título"
+                    defaultValue={bookToEdit?.title}
+                    {...register("title")}
+                    placeholder="Digite o título"
+                  />
+                  <Input
+                    label="Autor"
+                    defaultValue={bookToEdit?.author}
+                    {...register("author")}
+                    placeholder="Nome do autor"
+                  />
+                </div>
                 {errors.title && (
                   <p className="text-red-500 text-xs">{errors.title.message}</p>
                 )}
-
-                <Input
-                  label="Autor"
-                  defaultValue={bookToEdit?.author}
-                  {...register("author")}
-                  placeholder="Nome do autor"
-                />
                 {errors.author && (
                   <p className="text-red-500 text-xs">
                     {errors.author.message}
                   </p>
                 )}
 
-                <Input
-                  label="Páginas"
-                  type="number"
-                  defaultValue={bookToEdit?.pages}
-                  {...register("pages")}
-                  placeholder="Número de páginas"
-                />
+                <div className="grid grid-cols-2 gap-4">
+                  <Input
+                    label="Páginas"
+                    type="number"
+                    defaultValue={bookToEdit?.pages}
+                    {...register("pages")}
+                    placeholder="Número de páginas"
+                  />
+                  <Input
+                    label="Capa do Autor"
+                    defaultValue={bookToEdit?.authorImage}
+                    {...register("authorImage")}
+                    placeholder="URL da imagem do autor"
+                  />
+                </div>
                 {errors.pages && (
                   <p className="text-red-500 text-xs">{errors.pages.message}</p>
                 )}
-
-                <Input
-                  label="Capa do Autor"
-                  defaultValue={bookToEdit?.authorImage}
-                  {...register("authorImage")}
-                  placeholder="URL da imagem do autor"
-                />
                 {errors.authorImage && (
                   <p className="text-red-500 text-xs">
                     {errors.authorImage.message}
@@ -474,12 +484,14 @@ export default function Books() {
                   defaultValue={bookToEdit?.description}
                   {...register("description")}
                   placeholder="Digite uma breve descrição"
+                  className="col-span-2"
                 />
                 {errors.description && (
                   <p className="text-red-500 text-xs">
                     {errors.description.message}
                   </p>
                 )}
+
                 <Button
                   isLoading={isEditing}
                   className="w-full bg-amber-500 font-semibold hover:bg-amber-400"
