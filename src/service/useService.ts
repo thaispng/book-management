@@ -6,8 +6,8 @@ const fetchUsers = async (): Promise<User[]> => {
   return response.data;
 };
 
-const service = {
+const Userservice = {
   fetchUsers,
 };
 
-export default service;
+export default Userservice;
