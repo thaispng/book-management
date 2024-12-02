@@ -150,7 +150,7 @@ export default function Books() {
       <div className="flex flex-col w-full pb-10 mt-4 gap-10">
         <div className="flex flex-col gap-3">
           <div className="flex flex-col md:flex-row w-full justify-between">
-            <div className="flex flex-col w-full md:w-[500px]">
+            <div className="flex flex-col w-full gap- md:w-[500px]">
               <h1 className="text-start text-white font-montserrat font-normal text-xl md:text-2xl">
                 Livros adicionados
               </h1>
@@ -169,8 +169,8 @@ export default function Books() {
             <div className="flex flex-col items-start gap-4 w-full md:w-[500px] px-5">
               {books && (
                 <>
-                  <div className="flex flex-row justify-start items-center gap-2">
-                    <Avatar className="w-16 h-16 md:w-20 md:h-20">
+                  <div className="flex flex-row justify-start items-center gap-4">
+                    <Avatar className="w-16 h-16 mt-5 md:w-20 md:h-20">
                       <AvatarImage
                         className="w-full"
                         src={
@@ -310,101 +310,100 @@ export default function Books() {
         </div>
       </div>
       {isAddModalOpen && (
-  <div className="fixed inset-0 flex items-center justify-center bg-zinc-900 bg-opacity-60 z-50">
-    <Card className="relative w-full max-w-md bg-black shadow-xl p-8 rounded-lg text-white">
-      <button
-        onClick={handleCloseAddModal}
-        className="absolute top-4 right-4 text-gray-400 hover:text-gray-200 focus:outline-none"
-        aria-label="Fechar"
-      >
-        <X size={20} />
-      </button>
-      <CardHeader>
-        <CardTitle className="text-xl font-bold font-montserrat">
-          Adicionar Novo Livro
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <form
-          onSubmit={handleSubmit(onAddSubmit)}
-          className="flex flex-col gap-4"
-        >
-          <div className="grid grid-cols-2 sm:grid-cols-1 gap-4">
-            <Input
-              label="Título"
-              {...register("title")}
-              placeholder="Digite o título"
-            />
-            <Input
-              label="Autor"
-              {...register("author")}
-              placeholder="Nome do autor"
-            />
-          </div>
-          {errors.title && (
-            <p className="text-red-500 text-xs">{errors.title.message}</p>
-          )}
-          {errors.author && (
-            <p className="text-red-500 text-xs">
-              {errors.author.message}
-            </p>
-          )}
+        <div className="fixed inset-0 flex items-center justify-center bg-zinc-900 bg-opacity-60 z-50">
+          <Card className="relative w-full max-w-md bg-black shadow-xl p-8 rounded-lg text-white">
+            <button
+              onClick={handleCloseAddModal}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-200 focus:outline-none"
+              aria-label="Fechar"
+            >
+              <X size={20} />
+            </button>
+            <CardHeader>
+              <CardTitle className="text-xl font-bold font-montserrat">
+                Adicionar Novo Livro
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <form
+                onSubmit={handleSubmit(onAddSubmit)}
+                className="flex flex-col gap-4"
+              >
+                <div className="grid grid-cols-2 sm:grid-cols-1 gap-4">
+                  <Input
+                    label="Título"
+                    {...register("title")}
+                    placeholder="Digite o título"
+                  />
+                  <Input
+                    label="Autor"
+                    {...register("author")}
+                    placeholder="Nome do autor"
+                  />
+                </div>
+                {errors.title && (
+                  <p className="text-red-500 text-xs">{errors.title.message}</p>
+                )}
+                {errors.author && (
+                  <p className="text-red-500 text-xs">
+                    {errors.author.message}
+                  </p>
+                )}
 
-          <div className="grid grid-cols-2 sm:grid-cols-1 gap-4">
-            <Input
-              label="Páginas"
-              type="number"
-              {...register("pages")}
-              placeholder="Número de páginas"
-            />
-            <Input
-              label="Capa do Autor"
-              {...register("authorImage")}
-              placeholder="URL da imagem do autor"
-            />
-          </div>
-          {errors.pages && (
-            <p className="text-red-500 text-xs">{errors.pages.message}</p>
-          )}
-          {errors.authorImage && (
-            <p className="text-red-500 text-xs">
-              {errors.authorImage.message}
-            </p>
-          )}
+                <div className="grid grid-cols-2 sm:grid-cols-1 gap-4">
+                  <Input
+                    label="Páginas"
+                    type="number"
+                    {...register("pages")}
+                    placeholder="Número de páginas"
+                  />
+                  <Input
+                    label="Capa do Autor"
+                    {...register("authorImage")}
+                    placeholder="URL da imagem do autor"
+                  />
+                </div>
+                {errors.pages && (
+                  <p className="text-red-500 text-xs">{errors.pages.message}</p>
+                )}
+                {errors.authorImage && (
+                  <p className="text-red-500 text-xs">
+                    {errors.authorImage.message}
+                  </p>
+                )}
 
-          <Input
-            label="Capa do Livro"
-            {...register("image")}
-            placeholder="URL da capa do livro"
-          />
-          {errors.image && (
-            <p className="text-red-500 text-xs">{errors.image.message}</p>
-          )}
+                <Input
+                  label="Capa do Livro"
+                  {...register("image")}
+                  placeholder="URL da capa do livro"
+                />
+                {errors.image && (
+                  <p className="text-red-500 text-xs">{errors.image.message}</p>
+                )}
 
-          <Textarea
-            label="Descrição"
-            {...register("description")}
-            placeholder="Digite uma breve descrição"
-            className="col-span-2"
-          />
-          {errors.description && (
-            <p className="text-red-500 text-xs">
-              {errors.description.message}
-            </p>
-          )}
+                <Textarea
+                  label="Descrição"
+                  {...register("description")}
+                  placeholder="Digite uma breve descrição"
+                  className="col-span-2"
+                />
+                {errors.description && (
+                  <p className="text-red-500 text-xs">
+                    {errors.description.message}
+                  </p>
+                )}
 
-          <Button
-            isLoading={isAdding}
-            className="w-full bg-amber-500 font-semibold hover:bg-amber-400"
-          >
-            Adicionar
-          </Button>
-        </form>
-      </CardContent>
-    </Card>
-  </div>
-)}
-
+                <Button
+                  isLoading={isAdding}
+                  className="w-full bg-amber-500 font-semibold hover:bg-amber-400"
+                >
+                  Adicionar
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+      )}
 
       {isEditModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-zinc-900 bg-opacity-60 z-50">
