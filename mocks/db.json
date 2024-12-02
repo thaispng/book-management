@@ -31,15 +31,6 @@
       "image": "/book-one.png",
       "authorImage": "/author-jk-rowling.jpg",
       "id": "1"
-    },
-    {
-      "id": "2",
-      "title": "Game of Thrones - As Crônicas de Gelo e Fogo",
-      "author": "George R. R. Martin",
-      "authorImage": "/author-george-rr-martin.png",
-      "pages": 800,
-      "description": "O Senhor dos Anéis é um dos clássicos da literatura fantástica. A história se passa na Terra Média, um mundo fictício criado por Tolkien, e narra a jornada de um grupo de personagens em busca de destruir o Um Anel, um objeto que pode trazer a destruição do mundo.",
-      "image": "/book-two.jpg"
     }
   ]
 }
