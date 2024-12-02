@@ -21,7 +21,7 @@ export default function RootLayout({
         style={{ fontFamily: "Libre Caslon Text, serif" }}
       >
         <ReactQueryProvider>
-          <Toaster />
+          <Toaster position="bottom-right" />
           {children}
         </ReactQueryProvider>
       </body>
